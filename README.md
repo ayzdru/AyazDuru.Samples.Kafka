@@ -1,3 +1,4 @@
-Docker ile Hızlı Kafka Kurulumu
-Kafka’yı yerel ortamda hızlıca ayağa kaldırmak için aşağıdaki docker komutunu kullanabilirsiniz.
+Docker ile Hızlı Kafka Kurulumu  
+Kafka’yı yerel ortamda hızlıca ayağa kaldırmak için aşağıdaki docker komutunu kullanabilirsiniz.  
+
 docker run -d --name kafka -p 9092:9092 -p 9093:9093 -e KAFKA_NODE_ID=1 -e KAFKA_PROCESS_ROLES=broker,controller -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093 -e KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT -e KAFKA_INTER_BROKER_LISTENER_NAME=PLAINTEXT -e KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER -e KAFKA_LOG_DIRS=/var/lib/kafka/data -e KAFKA_AUTO_CREATE_TOPICS_ENABLE=true -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 -e KAFKA_LOG_RETENTION_HOURS=168 -e KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS=0 -e CLUSTER_ID=Mk3OEYBSD34fcwNTJENDM2Qk -v kafka_data:/var/lib/kafka/data apache/kafka:latest
